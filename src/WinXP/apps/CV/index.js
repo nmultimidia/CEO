@@ -30,8 +30,8 @@ const projects = [
     name: 'Futura Mail',
     type: 'Webmail · Systems Integration',
     description:
-      'Developing a webmail application as a separate product from the organisation’s own mail-server infrastructure, with integration between the application and mail services.',
-    stack: 'Next.js · React · TypeScript · IMAP/SMTP integration',
+      'Developing a webmail application as a separate product from the organisation’s own mail-server infrastructure, with mail-protocol and service integration work still in progress.',
+    stack: 'Next.js · React · TypeScript · IMAP/SMTP integration (in development)',
   },
   {
     name: 'Discord Ticket Automation',
@@ -104,7 +104,7 @@ export default function CV({ onClose }) {
               <a href="https://www.workana.com/freelancer/8082333beeccd2a6c7111466707db1ef" target="_blank" rel="noreferrer">Workana</a>
             </Links>
           </div>
-          <Badge>AVAILABLE FOR<br />SELECT PROJECTS</Badge>
+          <Badge>OPEN TO<br />OPPORTUNITIES</Badge>
         </Hero>
 
         <Stats>
