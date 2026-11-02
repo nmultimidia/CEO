@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "description": "Windows XP-inspired interactive online CV for Gabriel Nathan Tati",
-  "homepage": "https://gabrieltatai.online",
   "dependencies": {
     "lodash.samplesize": "^4.2.0",
     "react": "18",
