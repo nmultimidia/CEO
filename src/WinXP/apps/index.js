@@ -32,66 +32,6 @@ const genIndex = gen();
 
 export const defaultAppState = [
   {
-    component: InternetExplorer,
-    header: {
-      title: 'Internet Explorer',
-      icon: iePaper,
-    },
-    defaultSize: {
-      width: 700,
-      height: 500,
-    },
-    defaultOffset: {
-      x: 120,
-      y: 30,
-    },
-    resizable: true,
-    minimized: false,
-    maximized: window.innerWidth < 800,
-    id: genId(),
-    zIndex: genIndex(),
-  },
-  {
-    component: Minesweeper,
-    header: {
-      title: 'Minesweeper',
-      icon: mine,
-    },
-    defaultSize: {
-      width: 0,
-      height: 0,
-    },
-    defaultOffset: {
-      x: 100,
-      y: 550,
-    },
-    resizable: false,
-    minimized: false,
-    maximized: false,
-    id: genId(),
-    zIndex: genIndex(),
-  },
-  {
-    component: MyComputer,
-    header: {
-      title: 'My Computer',
-      icon: computer,
-    },
-    defaultSize: {
-      width: 660,
-      height: 500,
-    },
-    defaultOffset: {
-      x: 1200,
-      y: 70,
-    },
-    resizable: true,
-    minimized: false,
-    maximized: window.innerWidth < 800,
-    id: genId(),
-    zIndex: genIndex(),
-  },
-  {
     component: CV,
     header: {
       title: 'Gabriel Tati - Resume',
@@ -275,19 +215,19 @@ export const appSettings = {
     maximized: window.innerWidth < 800,
     multiInstance: true,
   },
-  'CV - Notepad': {
+  'Gabriel Tati - Resume': {
     header: {
       icon: cvIcon,
       title: 'Gabriel Tati - Resume',
     },
     component: CV,
     defaultSize: {
-      width: 660,
-      height: 500,
+      width: 920,
+      height: 720,
     },
     defaultOffset: {
-      x: 320,
-      y: 120,
+      x: 220,
+      y: 35,
     },
     resizable: true,
     minimized: false,
