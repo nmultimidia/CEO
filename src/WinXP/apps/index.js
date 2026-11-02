@@ -94,16 +94,16 @@ export const defaultAppState = [
   {
     component: CV,
     header: {
-      title: 'CV - Notepad',
+      title: 'Gabriel Tati - Resume',
       icon: cvIcon,
     },
     defaultSize: {
-      width: 660,
-      height: 700,
+      width: 920,
+      height: 720,
     },
     defaultOffset: {
-      x: 700,
-      y: 50,
+      x: 220,
+      y: 35,
     },
     resizable: true,
     minimized: false,
@@ -152,7 +152,7 @@ export const defaultIconState = [
   {
     id: 5,
     icon: cvLargeIcon,
-    title: 'CV - Notepad',
+    title: 'Gabriel Tati - Resume',
     component: CV,
     isFocus: false,
   },
@@ -278,7 +278,7 @@ export const appSettings = {
   'CV - Notepad': {
     header: {
       icon: cvIcon,
-      title: 'CV - Notepad',
+      title: 'Gabriel Tati - Resume',
     },
     component: CV,
     defaultSize: {
