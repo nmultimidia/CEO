@@ -1,9 +1,9 @@
 {
-  "name": "winxp",
-  "version": "0.1.0",
+  "name": "gabriel-tati-windows-xp-resume",
+  "version": "1.0.0",
   "private": true,
-  "author": "ShizukuIchi <shizukuichi@gmail.com>",
-  "homepage": "https://winxp.now.sh",
+  "description": "Windows XP-inspired interactive online CV for Gabriel Nathan Tati",
+  "homepage": "https://gabrieltatai.online",
   "dependencies": {
     "lodash.samplesize": "^4.2.0",
     "react": "18",
@@ -42,6 +42,6 @@
     "prettier": "^1.18.2"
   },
   "engines": {
-    "node": ">=10.16.0"
+    "node": ">=18"
   }
 }
