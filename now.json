@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "name": "winXP",
+  "name": "gabriel-tati-resume",
   "builds": [
     {
       "src": "package.json",
@@ -22,6 +22,5 @@
       "headers": { "cache-control": "s-maxage=0" },
       "dest": "/index.html"
     }
-  ],
-  "alias": ["windowsxp.now.sh", "winxp.now.sh"]
+  ]
 }
