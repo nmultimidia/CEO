@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useLanguage } from 'i18n/LanguageContext';
 
 const projects = [
   {
@@ -69,33 +70,56 @@ const skills = [
   ['Electronics', 'Altium Designer · Electronic schematics'],
 ];
 
+const portugueseProjects = [
+  { name: 'Imobi Lançamentos', type: 'Tecnologia Imobiliária · Full-Stack e IA', description: 'Contribuí para uma plataforma de lançamentos imobiliários com descoberta de imóveis, fluxos para imobiliárias, gestão de leads e análises de leads com apoio de IA. Também trabalhei no aplicativo Android e na sua publicação na Google Play.', stack: 'Plataforma web · APIs · Integrações de IA · Android', url: 'https://imobilancamentos.com.br/' },
+  { name: 'Futura Cloud', type: 'Infraestrutura em Nuvem · Engenharia', description: 'Desenvolvendo um plano de controlo em nuvem e agente Linux para nós, incluindo registo de nós, heartbeat, agendamento de comandos e inventário de infraestrutura. O projeto separa fundações implementadas das capacidades planeadas.', stack: 'Go · TypeScript · Docker · Linux · PostgreSQL', url: 'https://github.com/nmultimidia/futurahost3' },
+  { name: 'Futura Desk', type: 'SaaS Empresarial · Engenharia de Produto', description: 'Desenvolvendo um espaço de trabalho empresarial com CRM, pipeline, projetos, tarefas, finanças e portal de clientes. Alguns módulos ainda estão em desenvolvimento.', stack: 'TypeScript · React · Node.js · SQLite', url: 'https://futuradesk.space' },
+  { name: 'Futura Mail', type: 'Webmail · Integração de Sistemas', description: 'Desenvolvendo uma aplicação de webmail como produto separado da infraestrutura de servidor de e-mail da organização, com integrações de protocolos e serviços ainda em progresso.', stack: 'Next.js · React · TypeScript · Integração IMAP/SMTP (em desenvolvimento)' },
+  { name: 'Automação de Tickets Discord', type: 'Python · Automação de Backend', description: 'Bot de suporte no Discord para fluxos de tickets e armazenamento de documentação técnica, desenvolvido num projeto real de cliente.', stack: 'Python · APIs · Bases de dados · Linux', url: 'https://github.com/nmultimidia/bot-tickets-infinity' },
+];
+
+const portugueseExperience = [
+  { role: 'Fundador · N Multimídia | A desenvolver o Grupo Futura', period: 'Empreendedorismo e Desenvolvimento de Produtos', description: 'Lidero projetos de clientes e desenvolvimento de produtos digitais, combinando software, automação e resolução de problemas de negócio. O trabalho inclui sites, e-commerce, integrações de API, plataformas empresariais e fluxos com IA.' },
+  { role: 'Estagiário Técnico · Angola Telecom', period: 'Telecomunicações', description: 'Obtive experiência prática com infraestrutura de telecomunicações, incluindo UA5000, Tera ADSL/POTS, ligações de transmissão SDH/DWDM, tecnologias Huawei TCP/IP e sistemas UPS.' },
+];
+
+const portugueseSkills = [
+  ['Linguagens', 'JavaScript · TypeScript · Python · PHP · HTML · CSS'],
+  ['Frontend', 'React · Next.js · Desenvolvimento web responsivo'],
+  ['Backend e APIs', 'Node.js · Express · APIs REST · Integrações de API'],
+  ['Dados', 'PostgreSQL · MySQL · SQLite · Supabase'],
+  ['IA e Automação', 'Integrações LLM · Agentes de IA · n8n · Automação de fluxos'],
+  ['Infraestrutura', 'Linux · Docker · Git · Implementação de servidores'],
+  ['Telecomunicações', 'TCP/IP · Asterisk/SIP · Fundamentos 4G/5G'],
+  ['Eletrónica', 'Altium Designer · Esquemas eletrónicos'],
+];
+
 export default function CV({ onClose }) {
+  const isPortuguese = useLanguage() === 'pt';
+  const localizedProjects = isPortuguese ? portugueseProjects : projects;
+  const localizedExperience = isPortuguese ? portugueseExperience : experience;
+  const localizedSkills = isPortuguese ? portugueseSkills : skills;
   return (
     <Page>
       <Toolbar>
-        <span>File</span>
-        <span>Edit</span>
-        <span>View</span>
-        <span>Help</span>
+        <span>{isPortuguese ? 'Ficheiro' : 'File'}</span>
+        <span>{isPortuguese ? 'Editar' : 'Edit'}</span>
+        <span>{isPortuguese ? 'Ver' : 'View'}</span>
+        <span>{isPortuguese ? 'Ajuda' : 'Help'}</span>
         <ToolbarSpacer />
-        <button type="button" onClick={() => window.print()}>Print / Save PDF</button>
-        <button type="button" onClick={onClose}>Close</button>
+        <button type="button" onClick={() => window.print()}>{isPortuguese ? 'Imprimir / Guardar PDF' : 'Print / Save PDF'}</button>
+        <button type="button" onClick={onClose}>{isPortuguese ? 'Fechar' : 'Close'}</button>
       </Toolbar>
 
       <Document>
-        <TopLine>CURRICULUM VITAE · PROFESSIONAL PROFILE</TopLine>
+        <TopLine>{isPortuguese ? 'CURRICULUM VITAE · PERFIL PROFISSIONAL' : 'CURRICULUM VITAE · PROFESSIONAL PROFILE'}</TopLine>
         <Hero>
           <div>
-            <Eyebrow>FULL-STACK DEVELOPER · AI & AUTOMATION</Eyebrow>
+            <Eyebrow>{isPortuguese ? 'DESENVOLVEDOR FULL-STACK · IA E AUTOMAÇÃO' : 'FULL-STACK DEVELOPER · AI & AUTOMATION'}</Eyebrow>
             <Name>Gabriel Nathan Tati</Name>
-            <Location>Luanda, Angola · Open to remote and international opportunities</Location>
+            <Location>{isPortuguese ? 'Luanda, Angola · Disponível para oportunidades remotas e internacionais' : 'Luanda, Angola · Open to remote and international opportunities'}</Location>
             <Intro>
-              I build practical digital products that help businesses operate,
-              connect and grow — from web applications and e-commerce platforms
-              to backend integrations, automation and AI-powered solutions.
-              My experience combines hands-on client delivery, product
-              development and a technical foundation in electronics and
-              telecommunications.
+              {isPortuguese ? 'Desenvolvo produtos digitais práticos que ajudam empresas a operar, conectar-se e crescer — desde aplicações web e plataformas de e-commerce a integrações de backend, automação e soluções com IA. A minha experiência combina execução para clientes, desenvolvimento de produto e uma base técnica em eletrónica e telecomunicações.' : 'I build practical digital products that help businesses operate, connect and grow — from web applications and e-commerce platforms to backend integrations, automation and AI-powered solutions. My experience combines hands-on client delivery, product development and a technical foundation in electronics and telecommunications.'}
             </Intro>
             <Links>
               <a href="mailto:bielnathanoficial@gmail.com">Email</a>
@@ -104,18 +128,18 @@ export default function CV({ onClose }) {
               <a href="https://www.workana.com/freelancer/8082333beeccd2a6c7111466707db1ef" target="_blank" rel="noreferrer">Workana</a>
             </Links>
           </div>
-          <Badge>OPEN TO<br />OPPORTUNITIES</Badge>
+          <Badge>{isPortuguese ? <>DISPONÍVEL<br />PARA PROJETOS</> : <>OPEN TO<br />OPPORTUNITIES</>}</Badge>
         </Hero>
 
         <Stats>
-          <Stat><strong>45</strong><span>Workana client ratings</span></Stat>
-          <Stat><strong>4</strong><span>Repeat clients</span></Stat>
-          <Stat><strong>Global</strong><span>Client project experience</span></Stat>
+          <Stat><strong>45</strong><span>{isPortuguese ? 'avaliações de clientes Workana' : 'Workana client ratings'}</span></Stat>
+          <Stat><strong>4</strong><span>{isPortuguese ? 'clientes recorrentes' : 'Repeat clients'}</span></Stat>
+          <Stat><strong>{isPortuguese ? 'Global' : 'Global'}</strong><span>{isPortuguese ? 'experiência em projetos de clientes' : 'Client project experience'}</span></Stat>
         </Stats>
 
         <Section>
-          <SectionTitle>Professional Experience</SectionTitle>
-          {experience.map(item => (
+          <SectionTitle>{isPortuguese ? 'Experiência Profissional' : 'Professional Experience'}</SectionTitle>
+          {localizedExperience.map(item => (
             <Experience key={item.role}>
               <ExperienceHead>
                 <h3>{item.role}</h3>
@@ -125,20 +149,17 @@ export default function CV({ onClose }) {
             </Experience>
           ))}
           <Note>
-            Client work has been delivered through N Multimídia, including
-            projects commissioned through Workana. The profile currently
-            displays 45 client ratings and indicates that 4 clients hired
-            N Multimídia more than once.
+            {isPortuguese ? 'Os trabalhos para clientes foram realizados através da N Multimídia, incluindo projetos contratados na Workana. O perfil apresenta 45 avaliações de clientes e indica que 4 clientes contrataram a N Multimídia mais de uma vez.' : 'Client work has been delivered through N Multimídia, including projects commissioned through Workana. The profile currently displays 45 client ratings and indicates that 4 clients hired N Multimídia more than once.'}
           </Note>
           <TextLink href="https://www.workana.com/freelancer/8082333beeccd2a6c7111466707db1ef" target="_blank" rel="noreferrer">
-            View client ratings and testimonials on Workana ↗
+            {isPortuguese ? 'Ver avaliações e testemunhos de clientes na Workana ↗' : 'View client ratings and testimonials on Workana ↗'}
           </TextLink>
         </Section>
 
         <Section>
-          <SectionTitle>Selected Products & Engineering Work</SectionTitle>
+          <SectionTitle>{isPortuguese ? 'Produtos Selecionados e Trabalho de Engenharia' : 'Selected Products & Engineering Work'}</SectionTitle>
           <ProjectGrid>
-            {projects.map(project => (
+            {localizedProjects.map(project => (
               <Project key={project.name}>
                 <ProjectTop>
                   <h3>{project.name}</h3>
@@ -148,23 +169,21 @@ export default function CV({ onClose }) {
                 <Tech>{project.stack}</Tech>
                 {project.url && (
                   <TextLink href={project.url} target="_blank" rel="noreferrer">
-                    Explore project ↗
+                    {isPortuguese ? 'Explorar projeto ↗' : 'Explore project ↗'}
                   </TextLink>
                 )}
               </Project>
             ))}
           </ProjectGrid>
           <Note>
-            Some products are actively being developed. Project descriptions
-            distinguish ongoing work from released client-facing products;
-            not every planned feature is represented as production-ready.
+            {isPortuguese ? 'Alguns produtos estão em desenvolvimento ativo. As descrições distinguem o trabalho em curso dos produtos já lançados para clientes; nem todas as funcionalidades planeadas são apresentadas como prontas para produção.' : 'Some products are actively being developed. Project descriptions distinguish ongoing work from released client-facing products; not every planned feature is represented as production-ready.'}
           </Note>
         </Section>
 
         <Section>
-          <SectionTitle>Technical Skills</SectionTitle>
+          <SectionTitle>{isPortuguese ? 'Competências Técnicas' : 'Technical Skills'}</SectionTitle>
           <SkillGrid>
-            {skills.map(([label, value]) => (
+            {localizedSkills.map(([label, value]) => (
               <Skill key={label}>
                 <strong>{label}</strong>
                 <span>{value}</span>
@@ -174,43 +193,43 @@ export default function CV({ onClose }) {
         </Section>
 
         <Section>
-          <SectionTitle>Education</SectionTitle>
+          <SectionTitle>{isPortuguese ? 'Formação' : 'Education'}</SectionTitle>
           <Education>
-            <h3>BSc Computer Science</h3>
+            <h3>{isPortuguese ? 'Licenciatura em Ciência da Computação' : 'BSc Computer Science'}</h3>
             <strong>University of the People</strong>
-            <span>In progress · Online</span>
+            <span>{isPortuguese ? 'Em curso · Online' : 'In progress · Online'}</span>
           </Education>
           <Education>
-            <h3>Technical Qualification · Electronics & Telecommunications</h3>
-            <strong>Technical Secondary Education</strong>
-            <span>Completed 2021</span>
+            <h3>{isPortuguese ? 'Qualificação Técnica · Eletrónica e Telecomunicações' : 'Technical Qualification · Electronics & Telecommunications'}</h3>
+            <strong>{isPortuguese ? 'Ensino Secundário Técnico' : 'Technical Secondary Education'}</strong>
+            <span>{isPortuguese ? 'Concluído em 2021' : 'Completed 2021'}</span>
           </Education>
         </Section>
 
         <Section>
-          <SectionTitle>Certifications & Professional Development</SectionTitle>
+          <SectionTitle>{isPortuguese ? 'Certificações e Desenvolvimento Profissional' : 'Certifications & Professional Development'}</SectionTitle>
           <BulletList>
-            <li>Google Cybersecurity Foundations — completed; continuing studies in the programme.</li>
-            <li>Project Management certificate.</li>
-            <li>Telecommunications Technician certification.</li>
-            <li>Ongoing practical study in Python, software engineering, cloud infrastructure and AI automation.</li>
+            <li>{isPortuguese ? 'Google Cybersecurity Foundations — concluído; estudos no programa em continuidade.' : 'Google Cybersecurity Foundations — completed; continuing studies in the programme.'}</li>
+            <li>{isPortuguese ? 'Certificado em Gestão de Projetos.' : 'Project Management certificate.'}</li>
+            <li>{isPortuguese ? 'Certificação de Técnico de Telecomunicações.' : 'Telecommunications Technician certification.'}</li>
+            <li>{isPortuguese ? 'Estudo prático contínuo em Python, engenharia de software, infraestrutura em nuvem e automação com IA.' : 'Ongoing practical study in Python, software engineering, cloud infrastructure and AI automation.'}</li>
           </BulletList>
         </Section>
 
         <Section>
-          <SectionTitle>Languages</SectionTitle>
+          <SectionTitle>{isPortuguese ? 'Idiomas' : 'Languages'}</SectionTitle>
           <LanguageList>
-            <span><b>Portuguese</b> · Native</span>
-            <span><b>English</b> · Intermediate to advanced</span>
-            <span><b>Spanish</b></span>
-            <span><b>Mandarin Chinese</b> · Beginner</span>
+            <span><b>{isPortuguese ? 'Português' : 'Portuguese'}</b> · {isPortuguese ? 'Nativo' : 'Native'}</span>
+            <span><b>{isPortuguese ? 'Inglês' : 'English'}</b> · {isPortuguese ? 'Intermédio a avançado' : 'Intermediate to advanced'}</span>
+            <span><b>{isPortuguese ? 'Espanhol' : 'Spanish'}</b></span>
+            <span><b>{isPortuguese ? 'Chinês mandarim' : 'Mandarin Chinese'}</b> · {isPortuguese ? 'Iniciante' : 'Beginner'}</span>
           </LanguageList>
         </Section>
 
         <Footer>
           <span>Gabriel Nathan Tati</span>
-          <span>Last updated · November 2026</span>
-          <span>Windows XP-inspired online CV</span>
+          <span>{isPortuguese ? 'Última atualização · novembro de 2026' : 'Last updated · November 2026'}</span>
+          <span>{isPortuguese ? 'CV online inspirado no Windows XP' : 'Windows XP-inspired online CV'}</span>
         </Footer>
       </Document>
     </Page>

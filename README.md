@@ -42,6 +42,25 @@ Create a production build:
 yarn build
 ```
 
+## Docker and Coolify
+
+The project includes a production-ready multi-stage `Dockerfile`. It builds the
+React app with Node 20 and serves the static output through Nginx, including a
+single-page-app fallback for direct links.
+
+Build and run locally:
+
+```bash
+docker build -t gabriel-tati-resume .
+docker run --rm -p 8080:80 gabriel-tati-resume
+```
+
+Open `http://localhost:8080`.
+
+For Coolify, select **Dockerfile** as the build pack and expose container port
+`80`. No build command or publish directory is needed because the Docker image
+performs both the build and static hosting.
+
 ## Deployment
 
 The repository is configured as a Create React App static site. Configure the hosting project to deploy the `build` directory after the production build. The intended personal domain is **gabrieltatai.online**; DNS and hosting-domain configuration must be verified separately.

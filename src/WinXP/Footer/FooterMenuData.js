@@ -339,11 +339,6 @@ export const AllPrograms = [
       },
       {
         type: 'item',
-        icon: mine,
-        text: 'Minesweeper',
-      },
-      {
-        type: 'item',
         icon: pinball,
         text: 'Pinball',
       },

@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import SubMenu from 'components/SubMenu';
 import ie from 'assets/windowsIcons/ie.png';
 import mine from 'assets/minesweeper/mine-icon.png';
+import pinball from 'assets/windowsIcons/pinball.png';
 import setAccess from 'assets/windowsIcons/227(32x32).png';
 import outlook from 'assets/windowsIcons/887(32x32).png';
 import mediaPlayer from 'assets/windowsIcons/846(32x32).png';
@@ -26,11 +27,13 @@ import shut from 'assets/windowsIcons/310(32x32).png';
 import allProgramsIcon from 'assets/windowsIcons/all-programs.ico';
 import notepad from 'assets/windowsIcons/327(32x32).png';
 import empty from 'assets/empty.png';
+import { useLanguage } from 'i18n/LanguageContext';
 
 import { AllPrograms, ConnectTo, MyRecentDocuments } from './FooterMenuData';
 
 function FooterMenu({ className, onClick }) {
   const [hovering, setHovering] = useState('');
+  const language = useLanguage();
   function onMouseOver(e) {
     const item = e.target.closest('.menu__item');
     if (!item) return;
@@ -40,7 +43,7 @@ function FooterMenu({ className, onClick }) {
     <div className={className}>
       <header>
         <img className="header__img" src={user} alt="avatar" />
-        <span className="header__text">Rehyann Saini</span>
+        <span className="header__text">Gabriel Nathan Tati · {language === 'pt' ? 'Português' : 'English'}</span>
       </header>
       <section className="menu" onMouseOver={onMouseOver}>
         <hr className="orange-hr" />
@@ -55,7 +58,7 @@ function FooterMenu({ className, onClick }) {
           <Items
             onClick={onClick}
             items={[
-              { icon: mine, text: 'Minesweeper' },
+              { icon: pinball, text: 'Pinball' },
               { icon: notepad, text: 'Notepad' },
               { icon: paint, text: 'Paint' },
               { icon: mediaPlayer, text: 'Windows Media Player' },

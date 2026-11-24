@@ -242,6 +242,10 @@ function WinXP() {
       dispatch({ type: ADD_APP, payload: appSettings.Notepad });
     else if (o === 'Paint')
       dispatch({ type: ADD_APP, payload: appSettings.Paint });
+    else if (o === 'Pinball')
+      dispatch({ type: ADD_APP, payload: appSettings.Pinball });
+    else if (o === 'Windows Media Player')
+      dispatch({ type: ADD_APP, payload: appSettings['Windows Media Player'] });
     else if (o === 'Log Off')
       dispatch({ type: POWER_OFF, payload: POWER_STATE.LOG_OFF });
     else if (o === 'Turn Off Computer')
