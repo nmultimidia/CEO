@@ -52,13 +52,13 @@ Build and run locally:
 
 ```bash
 docker build -t gabriel-tati-resume .
-docker run --rm -p 8080:80 gabriel-tati-resume
+docker run --rm -p 8080:8080 gabriel-tati-resume
 ```
 
 Open `http://localhost:8080`.
 
 For Coolify, select **Dockerfile** as the build pack and expose container port
-`80`. No build command or publish directory is needed because the Docker image
+`8080`. No build command or publish directory is needed because the Docker image
 performs both the build and static hosting.
 
 ## Deployment
