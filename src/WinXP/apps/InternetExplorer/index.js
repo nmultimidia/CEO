@@ -21,8 +21,10 @@ import refresh from 'assets/windowsIcons/refresh.png';
 import stop from 'assets/windowsIcons/stop.png';
 import windows from 'assets/windowsIcons/windows.png';
 import dropdown from 'assets/windowsIcons/dropdown.png';
+import { useLanguage } from 'i18n/LanguageContext';
 
-function InternetExplorer({ onClose }) {
+function InternetExplorer({ onClose, url, title }) {
+  const isPortuguese = useLanguage() === 'pt';
   const [state, setState] = useState({
     route: 'main',
     query: '',
@@ -73,7 +75,7 @@ function InternetExplorer({ onClose }) {
           }`}
         >
           <img className="ie__function_bar__icon" src={back} alt="" />
-          <span className="ie__function_bar__text">Back</span>
+          <span className="ie__function_bar__text">{isPortuguese ? 'Voltar' : 'Back'}</span>
           <div className="ie__function_bar__arrow" />
         </div>
         <div className="ie__function_bar__button--disable">
@@ -100,7 +102,7 @@ function InternetExplorer({ onClose }) {
             src={search}
             alt=""
           />
-          <span className="ie__function_bar__text">Search</span>
+          <span className="ie__function_bar__text">{isPortuguese ? 'Pesquisar' : 'Search'}</span>
         </div>
         <div className="ie__function_bar__button">
           <img
@@ -108,7 +110,7 @@ function InternetExplorer({ onClose }) {
             src={favorite}
             alt=""
           />
-          <span className="ie__function_bar__text">Favorites</span>
+          <span className="ie__function_bar__text">{isPortuguese ? 'Favoritos' : 'Favorites'}</span>
         </div>
         <div className="ie__function_bar__button">
           <img className="ie__function_bar__icon" src={history} alt="" />
@@ -133,11 +135,11 @@ function InternetExplorer({ onClose }) {
         </div>
       </section>
       <section className="ie__address_bar">
-        <div className="ie__address_bar__title">Address</div>
+        <div className="ie__address_bar__title">{isPortuguese ? 'Endereço' : 'Address'}</div>
         <div className="ie__address_bar__content">
           <img src={ie} alt="ie" className="ie__address_bar__content__img" />
           <div className="ie__address_bar__content__text">
-            {`https://gabrieltatai.online${
+            {url || `https://gabrieltatai.online${
               state.route === 'search'
                 ? `/search?q=${encodeURIComponent(state.query)}`
                 : ''
@@ -151,11 +153,11 @@ function InternetExplorer({ onClose }) {
         </div>
         <div className="ie__address_bar__go">
           <img className="ie__address_bar__go__img" src={go} alt="go" />
-          <span className="ie__address_bar__go__text">Go</span>
+          <span className="ie__address_bar__go__text">{isPortuguese ? 'Ir' : 'Go'}</span>
         </div>
         <div className="ie__address_bar__separate" />
         <div className="ie__address_bar__links">
-          <span className="ie__address_bar__links__text">Links</span>
+          <span className="ie__address_bar__links__text">{isPortuguese ? 'Ligações' : 'Links'}</span>
           <img
             className="ie__address_bar__links__img"
             src={links}
@@ -165,18 +167,13 @@ function InternetExplorer({ onClose }) {
       </section>
       <div className="ie__content">
         <div className="ie__content__inner">
-          <Google
-            route={state.route}
-            query={state.query}
-            onSearch={onSearch}
-            goMain={goMain}
-          />
+          {url ? <iframe className="ie__external-page" title={title || 'Página'} src={url} /> : <Google route={state.route} query={state.query} onSearch={onSearch} goMain={goMain} />}
         </div>
       </div>
       <footer className="ie__footer">
         <div className="ie__footer__status">
           <img className="ie__footer__status__img" src={ie} alt="" />
-          <span className="ie__footer__status__text">Done</span>
+          <span className="ie__footer__status__text">{isPortuguese ? 'Concluído' : 'Done'}</span>
         </div>
         <div className="ie__footer__block" />
         <div className="ie__footer__block" />
@@ -405,6 +402,7 @@ const Div = styled.div`
     width: 100%;
     height: 100%;
   }
+  .ie__external-page { width: 100%; height: 100%; min-height: 600px; border: 0; background: #fff; }
   .ie__footer {
     height: 20px;
     border-top: 1px solid transparent;

@@ -25,8 +25,12 @@ import pullup from 'assets/windowsIcons/pullup.png';
 import logo from 'assets/github-logo.png';
 import rick from 'assets/rickroll.png';
 import windows from 'assets/windowsIcons/windows.png';
+import { useLanguage } from 'i18n/LanguageContext';
+import { useBrowser } from 'WinXP/BrowserContext';
 
 function MyComputer({ onClose }) {
+  const isPortuguese = useLanguage() === 'pt';
+  const { openUrl } = useBrowser();
   function onClickOptionItem(item) {
     switch (item) {
       case 'Close':
@@ -94,7 +98,7 @@ function MyComputer({ onClose }) {
             alt="ie"
             className="com__address_bar__content__img"
           />
-          <div className="com__address_bar__content__text">My Computer</div>
+          <div className="com__address_bar__content__text">{isPortuguese ? 'Meu Computador' : 'My Computer'}</div>
           <img
             src={dropdown}
             alt="dropdown"
@@ -112,7 +116,7 @@ function MyComputer({ onClose }) {
             <div className="com__content__left__card">
               <div className="com__content__left__card__header">
                 <div className="com__content__left__card__header__text">
-                  System Tasks
+                  {isPortuguese ? 'Tarefas do sistema' : 'System Tasks'}
                 </div>
                 <img
                   src={pullup}
@@ -128,7 +132,7 @@ function MyComputer({ onClose }) {
                     alt="view"
                   />
                   <div className="com__content__left__card__text link">
-                    View system information
+                    {isPortuguese ? 'Ver informações do sistema' : 'View system information'}
                   </div>
                 </div>
                 <div className="com__content__left__card__row">
@@ -138,7 +142,7 @@ function MyComputer({ onClose }) {
                     alt="remove"
                   />
                   <div className="com__content__left__card__text link">
-                    Add or remove programs
+                    {isPortuguese ? 'Adicionar ou remover programas' : 'Add or remove programs'}
                   </div>
                 </div>
                 <div className="com__content__left__card__row">
@@ -148,7 +152,7 @@ function MyComputer({ onClose }) {
                     alt="control"
                   />
                   <div className="com__content__left__card__text link">
-                    Change a setting
+                    {isPortuguese ? 'Alterar uma configuração' : 'Change a setting'}
                   </div>
                 </div>
               </div>
@@ -156,7 +160,7 @@ function MyComputer({ onClose }) {
             <div className="com__content__left__card">
               <div className="com__content__left__card__header">
                 <div className="com__content__left__card__header__text">
-                  Other Places
+                  {isPortuguese ? 'Outros locais' : 'Other Places'}
                 </div>
                 <img
                   src={pullup}
@@ -172,7 +176,7 @@ function MyComputer({ onClose }) {
                     alt="network"
                   />
                   <div className="com__content__left__card__text link">
-                    My Network Places
+                    {isPortuguese ? 'Os meus locais de rede' : 'My Network Places'}
                   </div>
                 </div>
                 <div className="com__content__left__card__row">
@@ -182,7 +186,7 @@ function MyComputer({ onClose }) {
                     alt="document"
                   />
                   <div className="com__content__left__card__text link">
-                    My Documents
+                    {isPortuguese ? 'Os meus documentos' : 'My Documents'}
                   </div>
                 </div>
                 <div className="com__content__left__card__row">
@@ -192,7 +196,7 @@ function MyComputer({ onClose }) {
                     alt="folder"
                   />
                   <div className="com__content__left__card__text link">
-                    Shared Documents
+                    {isPortuguese ? 'Documentos partilhados' : 'Shared Documents'}
                   </div>
                 </div>
                 <div className="com__content__left__card__row">
@@ -202,7 +206,7 @@ function MyComputer({ onClose }) {
                     alt="control"
                   />
                   <div className="com__content__left__card__text link">
-                    Control Panel
+                    {isPortuguese ? 'Painel de controlo' : 'Control Panel'}
                   </div>
                 </div>
               </div>
@@ -210,7 +214,7 @@ function MyComputer({ onClose }) {
             <div className="com__content__left__card">
               <div className="com__content__left__card__header">
                 <div className="com__content__left__card__header__text">
-                  Details
+                  {isPortuguese ? 'Detalhes' : 'Details'}
                 </div>
                 <img
                   src={pullup}
@@ -227,8 +231,7 @@ function MyComputer({ onClose }) {
                   />
                   <a
                     href="https://www.linkedin.com/in/gabriel-nathan-tati/"
-                    target="_blank"
-                    rel="noreferrer"
+                    onClick={event => { event.preventDefault(); openUrl(event.currentTarget.href, 'LinkedIn'); }}
                     className="com__content__left__card__text link"
                   >
                     LinkedIn
@@ -242,8 +245,7 @@ function MyComputer({ onClose }) {
                   />
                   <a
                     href="https://github.com/gabrielnathantati2"
-                    target="_blank"
-                    rel="noreferrer"
+                    onClick={event => { event.preventDefault(); openUrl(event.currentTarget.href, 'GitHub'); }}
                     className="com__content__left__card__text link"
                   >
                     GitHub
@@ -255,7 +257,7 @@ function MyComputer({ onClose }) {
           <div className="com__content__right">
             <div className="com__content__right__card">
               <div className="com__content__right__card__header">
-                Files Stored on This Computer
+                {isPortuguese ? 'Ficheiros guardados neste computador' : 'Files Stored on This Computer'}
               </div>
               <div className="com__content__right__card__content">
                 <div className="com__content__right__card__item">
@@ -266,7 +268,7 @@ function MyComputer({ onClose }) {
                   />
                   <div className="com__content__right__card__img-container">
                     <div className="com__content__right__card__text">
-                      Shared Documents
+                      {isPortuguese ? 'Documentos partilhados' : 'Shared Documents'}
                     </div>
                   </div>
                 </div>
@@ -278,7 +280,7 @@ function MyComputer({ onClose }) {
                   />
                   <div className="com__content__right__card__img-container">
                     <div className="com__content__right__card__text">
-                      User's Documents
+                      {isPortuguese ? 'Documentos do utilizador' : "User's Documents"}
                     </div>
                   </div>
                 </div>
@@ -286,7 +288,7 @@ function MyComputer({ onClose }) {
             </div>
             <div className="com__content__right__card">
               <div className="com__content__right__card__header">
-                Hard Disk Drives
+                {isPortuguese ? 'Unidades de disco rígido' : 'Hard Disk Drives'}
               </div>
               <div className="com__content__right__card__content">
                 <div className="com__content__right__card__item">
@@ -305,7 +307,7 @@ function MyComputer({ onClose }) {
             </div>
             <div className="com__content__right__card">
               <div className="com__content__right__card__header">
-                Devices with Removable Storage
+                {isPortuguese ? 'Dispositivos com armazenamento amovível' : 'Devices with Removable Storage'}
               </div>
               <div className="com__content__right__card__content">
                 <div className="com__content__right__card__item">
@@ -329,8 +331,7 @@ function MyComputer({ onClose }) {
               <div className="com__content__right__card__content">
                 <a
                   href="https://github.com/gabrielnathantati2"
-                  target="_blank"
-                  rel="noreferrer"
+                  onClick={event => { event.preventDefault(); openUrl(event.currentTarget.href, 'GitHub'); }}
                   className="com__content__right__card__item--me"
                 >
                   <img
@@ -342,8 +343,7 @@ function MyComputer({ onClose }) {
                 </a>
                 <a
                   href="https://gabrieltatai.online"
-                  target="_blank"
-                  rel="noreferrer"
+                  onClick={event => { event.preventDefault(); openUrl(event.currentTarget.href, 'Gabriel Nathan Tati'); }}
                   className="com__content__right__card__item--me"
                 >
                   <img

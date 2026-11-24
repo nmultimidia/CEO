@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import user from 'assets/windowsIcons/user.png';
@@ -17,19 +17,28 @@ const languages = [
 ];
 
 export default function WelcomeScreen({ onSelect }) {
+  const [entering, setEntering] = useState(false);
+  const [selectedLanguage, setSelectedLanguage] = useState('');
+  const enter = language => {
+    setSelectedLanguage(language.label);
+    setEntering(true);
+    playWelcomeChime();
+    window.setTimeout(() => onSelect(language.code), 680);
+  };
   return (
     <Screen>
       <TopBar />
       <Panel>
         <Intro>
-          <h1>Welcome</h1>
-          <p>Bem-vindo</p>
-          <span>Select your preferred language to continue.</span>
-          <span>Selecione o idioma para continuar.</span>
+          <h1>{entering ? (selectedLanguage === 'Português' ? 'Bem-vindo' : 'Welcome') : 'Welcome'}</h1>
+          <p>{entering ? 'Windows XP' : 'Bem-vindo'}</p>
+          <span>{entering ? (selectedLanguage === 'Português' ? 'A iniciar sessão...' : 'Logging on...') : 'Select your preferred language to continue.'}</span>
+          {!entering && <span>Selecione o idioma para continuar.</span>}
+          {entering && <Loading><i /><b /></Loading>}
         </Intro>
         <Accounts aria-label="Language selection">
-          {languages.map(language => (
-            <Account key={language.code} type="button" onClick={() => onSelect(language.code)}>
+          {!entering && languages.map(language => (
+            <Account key={language.code} type="button" onClick={() => enter(language)}>
               <img src={user} alt="" />
               <div>
                 <strong>{language.label}</strong>
@@ -45,6 +54,24 @@ export default function WelcomeScreen({ onSelect }) {
       </BottomBar>
     </Screen>
   );
+}
+
+function playWelcomeChime() {
+  const AudioContext = window.AudioContext || window.webkitAudioContext;
+  if (!AudioContext) return;
+  const context = new AudioContext();
+  [523.25, 659.25, 783.99].forEach((frequency, index) => {
+    const oscillator = context.createOscillator();
+    const gain = context.createGain();
+    oscillator.frequency.value = frequency;
+    gain.gain.setValueAtTime(0, context.currentTime + index * 0.08);
+    gain.gain.linearRampToValueAtTime(0.075, context.currentTime + index * 0.08 + 0.02);
+    gain.gain.exponentialRampToValueAtTime(0.001, context.currentTime + index * 0.08 + 0.25);
+    oscillator.connect(gain).connect(context.destination);
+    oscillator.start(context.currentTime + index * 0.08);
+    oscillator.stop(context.currentTime + index * 0.08 + 0.27);
+  });
+  window.setTimeout(() => context.close(), 650);
 }
 
 const Screen = styled.main`
@@ -120,4 +147,14 @@ const BottomBar = styled.footer`
   font-size: 13px;
   background: linear-gradient(#0c5ab7, #003b91);
   border-top: 1px solid #89cfff;
+`;
+
+const Loading = styled.div`
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  margin-top: 15px;
+  i, b { width: 10px; height: 10px; border-radius: 50%; background: #f5b642; animation: spin 1s infinite ease-in-out; }
+  b { background: #7ed4ff; animation-delay: .14s; }
+  @keyframes spin { 50% { transform: translateX(22px) scale(.6); } }
 `;

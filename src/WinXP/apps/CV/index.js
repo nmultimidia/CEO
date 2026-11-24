@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useLanguage } from 'i18n/LanguageContext';
+import { useBrowser } from 'WinXP/BrowserContext';
 
 const projects = [
   {
@@ -95,6 +96,7 @@ const portugueseSkills = [
 ];
 
 export default function CV({ onClose }) {
+  const { openUrl } = useBrowser();
   const isPortuguese = useLanguage() === 'pt';
   const localizedProjects = isPortuguese ? portugueseProjects : projects;
   const localizedExperience = isPortuguese ? portugueseExperience : experience;
@@ -123,9 +125,9 @@ export default function CV({ onClose }) {
             </Intro>
             <Links>
               <a href="mailto:bielnathanoficial@gmail.com">Email</a>
-              <a href="https://github.com/gabrielnathantati2" target="_blank" rel="noreferrer">GitHub</a>
-              <a href="https://github.com/nmultimidia" target="_blank" rel="noreferrer">N Multimídia</a>
-              <a href="https://www.workana.com/freelancer/8082333beeccd2a6c7111466707db1ef" target="_blank" rel="noreferrer">Workana</a>
+              <a href="https://github.com/gabrielnathantati2" onClick={event => { event.preventDefault(); openUrl(event.currentTarget.href, 'GitHub — Gabriel Nathan Tati'); }}>GitHub</a>
+              <a href="https://github.com/nmultimidia" onClick={event => { event.preventDefault(); openUrl(event.currentTarget.href, 'N Multimídia'); }}>N Multimídia</a>
+              <a href="https://www.workana.com/freelancer/8082333beeccd2a6c7111466707db1ef" onClick={event => { event.preventDefault(); openUrl(event.currentTarget.href, 'Workana'); }}>Workana</a>
             </Links>
           </div>
           <Badge>{isPortuguese ? <>DISPONÍVEL<br />PARA PROJETOS</> : <>OPEN TO<br />OPPORTUNITIES</>}</Badge>
@@ -151,7 +153,7 @@ export default function CV({ onClose }) {
           <Note>
             {isPortuguese ? 'Os trabalhos para clientes foram realizados através da N Multimídia, incluindo projetos contratados na Workana. O perfil apresenta 45 avaliações de clientes e indica que 4 clientes contrataram a N Multimídia mais de uma vez.' : 'Client work has been delivered through N Multimídia, including projects commissioned through Workana. The profile currently displays 45 client ratings and indicates that 4 clients hired N Multimídia more than once.'}
           </Note>
-          <TextLink href="https://www.workana.com/freelancer/8082333beeccd2a6c7111466707db1ef" target="_blank" rel="noreferrer">
+          <TextLink href="https://www.workana.com/freelancer/8082333beeccd2a6c7111466707db1ef" onClick={event => { event.preventDefault(); openUrl(event.currentTarget.href, 'Workana'); }}>
             {isPortuguese ? 'Ver avaliações e testemunhos de clientes na Workana ↗' : 'View client ratings and testimonials on Workana ↗'}
           </TextLink>
         </Section>
@@ -168,7 +170,7 @@ export default function CV({ onClose }) {
                 <p>{project.description}</p>
                 <Tech>{project.stack}</Tech>
                 {project.url && (
-                  <TextLink href={project.url} target="_blank" rel="noreferrer">
+                  <TextLink href={project.url} onClick={event => { event.preventDefault(); openUrl(event.currentTarget.href, project.name); }}>
                     {isPortuguese ? 'Explorar projeto ↗' : 'Explore project ↗'}
                   </TextLink>
                 )}

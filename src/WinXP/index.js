@@ -23,6 +23,7 @@ import Footer from './Footer';
 import Windows from './Windows';
 import Icons from './Icons';
 import { DashedBox } from 'components';
+import { BrowserContext } from './BrowserContext';
 
 const initState = {
   apps: defaultAppState,
@@ -238,6 +239,8 @@ function WinXP() {
       dispatch({ type: ADD_APP, payload: appSettings.Minesweeper });
     else if (o === 'My Computer')
       dispatch({ type: ADD_APP, payload: appSettings['My Computer'] });
+    else if (o === 'My Documents')
+      dispatch({ type: ADD_APP, payload: appSettings['My Documents'] });
     else if (o === 'Notepad')
       dispatch({ type: ADD_APP, payload: appSettings.Notepad });
     else if (o === 'Paint')
@@ -258,6 +261,16 @@ function WinXP() {
           injectProps: { message: 'C:\\\nApplication not found' },
         },
       });
+  }
+  function openUrl(url, title) {
+    dispatch({
+      type: ADD_APP,
+      payload: {
+        ...appSettings['Internet Explorer'],
+        header: { ...appSettings['Internet Explorer'].header, title: title || 'Internet Explorer' },
+        injectProps: { url, title },
+      },
+    });
   }
   function onMouseDownDesktop(e) {
     if (e.target === e.currentTarget)
@@ -286,6 +299,7 @@ function WinXP() {
     dispatch({ type: CANCEL_POWER_OFF });
   }
   return (
+    <BrowserContext.Provider value={{ openUrl }}>
     <Container
       ref={ref}
       onMouseUp={onMouseUpDesktop}
@@ -326,6 +340,7 @@ function WinXP() {
         />
       )}
     </Container>
+    </BrowserContext.Provider>
   );
 }
 

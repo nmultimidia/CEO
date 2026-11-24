@@ -7,6 +7,7 @@ import Paint from './Paint';
 import CV from './CV';
 import Pinball from './Pinball';
 import MediaPlayer from './MediaPlayer';
+import Documents from './Documents';
 
 import iePaper from 'assets/windowsIcons/ie-paper.png';
 import ie from 'assets/windowsIcons/ie.png';
@@ -20,6 +21,7 @@ import paintLarge from 'assets/windowsIcons/680(32x32).png';
 import paint from 'assets/windowsIcons/680(16x16).png';
 import pinball from 'assets/windowsIcons/pinball.png';
 import mediaPlayer from 'assets/windowsIcons/846(32x32).png';
+import document from 'assets/windowsIcons/308(32x32).png';
 
 import cvIcon from 'assets/windowsIcons/cv-icon.png';
 import cvLargeIcon from 'assets/windowsIcons/cv-large.png';
@@ -248,6 +250,16 @@ export const appSettings = {
     maximized: window.innerWidth < 800,
     multiInstance: false,
   },
+  'My Documents': {
+    header: { icon: document, title: 'My Documents' },
+    component: Documents,
+    defaultSize: { width: 720, height: 520 },
+    defaultOffset: { x: 250, y: 65 },
+    resizable: true,
+    minimized: false,
+    maximized: window.innerWidth < 800,
+    multiInstance: false,
+  },
   'Gabriel Tati - Resume': {
     header: {
       icon: cvIcon,
@@ -279,4 +291,5 @@ export {
   CV,
   Pinball,
   MediaPlayer,
+  Documents,
 };
