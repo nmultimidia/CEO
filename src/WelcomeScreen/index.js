@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import user from 'assets/windowsIcons/user.png';
+import lockChimeSrc from 'assets/sounds/LockChime.wav';
 
 const languages = [
   {
@@ -57,21 +58,9 @@ export default function WelcomeScreen({ onSelect }) {
 }
 
 function playWelcomeChime() {
-  const AudioContext = window.AudioContext || window.webkitAudioContext;
-  if (!AudioContext) return;
-  const context = new AudioContext();
-  [523.25, 659.25, 783.99].forEach((frequency, index) => {
-    const oscillator = context.createOscillator();
-    const gain = context.createGain();
-    oscillator.frequency.value = frequency;
-    gain.gain.setValueAtTime(0, context.currentTime + index * 0.08);
-    gain.gain.linearRampToValueAtTime(0.075, context.currentTime + index * 0.08 + 0.02);
-    gain.gain.exponentialRampToValueAtTime(0.001, context.currentTime + index * 0.08 + 0.25);
-    oscillator.connect(gain).connect(context.destination);
-    oscillator.start(context.currentTime + index * 0.08);
-    oscillator.stop(context.currentTime + index * 0.08 + 0.27);
-  });
-  window.setTimeout(() => context.close(), 650);
+  const audio = new Audio(lockChimeSrc);
+  audio.volume = 0.75;
+  audio.play().catch(() => {});
 }
 
 const Screen = styled.main`
