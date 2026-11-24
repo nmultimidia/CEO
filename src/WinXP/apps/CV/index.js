@@ -134,7 +134,7 @@ export default function CV({ onClose }) {
             {isPortuguese ? 'Desenvolvo produtos digitais práticos e experiências de suporte que ajudam empresas a operar, conectar-se e crescer — desde aplicações web e plataformas de e-commerce a integrações de backend, automação, resolução de incidentes e soluções com IA. A minha experiência combina entrega para clientes, suporte técnico L1/L2/L3, desenvolvimento de produto e uma base técnica em eletrónica e telecomunicações.' : 'I build practical digital products and support experiences that help businesses operate, connect and grow — from web applications and e-commerce platforms to backend integrations, automation, incident resolution and AI-powered solutions. My experience combines client delivery, L1/L2/L3 technical support, product development and a technical foundation in electronics and telecommunications.'}
             </Intro>
             <Links>
-              <a href="mailto:bielnathanoficial@gmail.com">Email</a>
+              <a href="mailto:contact@gabrieltati.online">Email</a>
               <a href="https://github.com/gabrielnathantati2" onClick={event => { event.preventDefault(); openUrl(event.currentTarget.href, 'GitHub — Gabriel Nathan Tati'); }}>GitHub</a>
               <a href="https://github.com/nmultimidia" onClick={event => { event.preventDefault(); openUrl(event.currentTarget.href, 'N Multimídia'); }}>N Multimídia</a>
               <a href="https://www.workana.com/freelancer/8082333beeccd2a6c7111466707db1ef" onClick={event => { event.preventDefault(); openUrl(event.currentTarget.href, 'Workana'); }}>Workana</a>

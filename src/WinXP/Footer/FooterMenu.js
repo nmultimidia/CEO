@@ -34,6 +34,8 @@ import { AllPrograms, ConnectTo, MyRecentDocuments } from './FooterMenuData';
 function FooterMenu({ className, onClick }) {
   const [hovering, setHovering] = useState('');
   const language = useLanguage();
+  const isPortuguese = language === 'pt';
+  const label = (pt, en) => (isPortuguese ? pt : en);
   function onMouseOver(e) {
     const item = e.target.closest('.menu__item');
     if (!item) return;
@@ -48,10 +50,10 @@ function FooterMenu({ className, onClick }) {
       <section className="menu" onMouseOver={onMouseOver}>
         <hr className="orange-hr" />
         <div className="menu__left">
-          <Item onClick={onClick} text="Internet" icon={ie}>
+          <Item onClick={onClick} text={label('Internet', 'Internet')} action="Internet" icon={ie}>
             <div className="menu__item__subtext">Internet Explorer</div>
           </Item>
-          <Item onClick={onClick} text="E-mail" icon={outlook}>
+          <Item onClick={onClick} text={label('Correio eletrónico', 'E-mail')} action="Outlook Express" icon={outlook}>
             <div className="menu__item__subtext">Outlook Express</div>
           </Item>
           <div className="menu__separator" />
@@ -59,8 +61,8 @@ function FooterMenu({ className, onClick }) {
             onClick={onClick}
             items={[
               { icon: pinball, text: 'Pinball' },
-              { icon: notepad, text: 'Notepad' },
-              { icon: paint, text: 'Paint' },
+              { icon: notepad, text: label('Bloco de notas', 'Notepad'), action: 'Notepad' },
+              { icon: paint, text: label('Paint', 'Paint') },
               { icon: mediaPlayer, text: 'Windows Media Player' },
               { icon: messenger, text: 'Windows Messenger' },
             ]}
@@ -69,7 +71,7 @@ function FooterMenu({ className, onClick }) {
           <div className="menu__separator" />
           <Item
             style={
-              hovering === 'All Programs'
+              hovering === label('Todos os programas', 'All Programs')
                 ? {
                     backgroundColor: '#2f71cd',
                     color: '#FFF',
@@ -78,7 +80,7 @@ function FooterMenu({ className, onClick }) {
             }
             text={
               <div style={{ display: 'flex', alignItems: 'center' }}>
-                All Programs
+                {label('Todos os programas', 'All Programs')}
                 <img
                   src={allProgramsIcon}
                   alt=""
@@ -91,33 +93,33 @@ function FooterMenu({ className, onClick }) {
             }
             icon={empty}
           >
-            {hovering === 'All Programs' && (
+            {hovering === label('Todos os programas', 'All Programs') && (
               <SubMenu data={AllPrograms} onClick={onClick} />
             )}
           </Item>
         </div>
         <div className="menu__right">
-          <Item text="My Documents" icon={documents} onClick={onClick} />
+          <Item text={label('Meus documentos', 'My Documents')} action="My Documents" icon={documents} onClick={onClick} />
           <Item
             style={
-              hovering === 'My Recent Documents'
+              hovering === label('Documentos recentes', 'My Recent Documents')
                 ? {
                     backgroundColor: '#2f71cd',
                     color: '#FFF',
                   }
                 : {}
             }
-            text="My Recent Documents"
+            text={label('Documentos recentes', 'My Recent Documents')}
             icon={recentDocuments}
           >
             <div
               style={{
                 borderLeftColor:
-                  hovering === 'My Recent Documents' ? '#FFF' : '#00136b',
+                  hovering === label('Documentos recentes', 'My Recent Documents') ? '#FFF' : '#00136b',
               }}
               className="menu__arrow"
             />
-            {hovering === 'My Recent Documents' && (
+            {hovering === label('Documentos recentes', 'My Recent Documents') && (
               <SubMenu
                 left="153px"
                 data={MyRecentDocuments}
@@ -128,49 +130,49 @@ function FooterMenu({ className, onClick }) {
           <Items
             onClick={onClick}
             items={[
-              { icon: pictures, text: 'My Pictures' },
-              { icon: music, text: 'My Music' },
-              { icon: computer, text: 'My Computer' },
+              { icon: pictures, text: label('Minhas imagens', 'My Pictures') },
+              { icon: music, text: label('Minhas músicas', 'My Music') },
+              { icon: computer, text: label('Meu computador', 'My Computer'), action: 'My Computer' },
             ]}
           />
           <div className="menu__separator" />
           <Items
             onClick={onClick}
             items={[
-              { icon: controlPanel, text: 'Control Panel' },
-              { icon: setAccess, text: 'Set Program Access and Defaults' },
+              { icon: controlPanel, text: label('Painel de controlo', 'Control Panel') },
+              { icon: setAccess, text: label('Definir acesso e predefinições de programas', 'Set Program Access and Defaults') },
             ]}
           />
           <Item
             style={
-              hovering === 'Connect To'
+              hovering === label('Ligar a', 'Connect To')
                 ? {
                     backgroundColor: '#2f71cd',
                     color: '#FFF',
                   }
                 : {}
             }
-            text="Connect To"
+            text={label('Ligar a', 'Connect To')}
             icon={connect}
           >
             <div
               style={{
-                borderLeftColor: hovering === 'Connect To' ? '#FFF' : '#00136b',
+                borderLeftColor: hovering === label('Ligar a', 'Connect To') ? '#FFF' : '#00136b',
               }}
               className="menu__arrow"
             />
-            {hovering === 'Connect To' && (
+            {hovering === label('Ligar a', 'Connect To') && (
               <SubMenu left="153px" data={ConnectTo} onClick={onClick} />
             )}
           </Item>
-          <Item onClick={onClick} text="Printers and Faxes" icon={printer} />
+          <Item onClick={onClick} text={label('Impressoras e faxes', 'Printers and Faxes')} icon={printer} />
           <div className="menu__separator" />
           <Items
             onClick={onClick}
             items={[
-              { icon: help, text: 'Help and Support' },
-              { icon: search, text: 'Search' },
-              { icon: run, text: 'Run...' },
+              { icon: help, text: label('Ajuda e suporte', 'Help and Support') },
+              { icon: search, text: label('Pesquisar', 'Search') },
+              { icon: run, text: label('Executar...', 'Run...') },
             ]}
           />
         </div>
@@ -178,14 +180,14 @@ function FooterMenu({ className, onClick }) {
       <footer>
         <div className="footer__item" onClick={() => onClick('Log Off')}>
           <img className="footer__item__img" src={lock} alt="" />
-          <span>Log Off</span>
+          <span>{label('Terminar sessão', 'Log Off')}</span>
         </div>
         <div
           className="footer__item"
           onClick={() => onClick('Turn Off Computer')}
         >
           <img className="footer__item__img" src={shut} alt="" />
-          <span>Turn Off Computer</span>
+          <span>{label('Desligar o computador', 'Turn Off Computer')}</span>
         </div>
       </footer>
     </div>
@@ -197,13 +199,14 @@ function Items({ items, ...rest }) {
 function Item({
   style,
   text,
+  action,
   icon,
   onHover = () => {},
   onClick = () => {},
   children,
 }) {
   function _onClick() {
-    onClick(text);
+    onClick(action || text);
   }
   function onMouseEnter() {
     onHover(text);
