@@ -160,6 +160,50 @@ function MyComputer({ onClose }) {
             <div className="com__content__left__card">
               <div className="com__content__left__card__header">
                 <div className="com__content__left__card__header__text">
+                  {isPortuguese ? 'Portfólio profissional' : 'Professional portfolio'}
+                </div>
+                <img
+                  src={pullup}
+                  alt=""
+                  className="com__content__left__card__header__img"
+                />
+              </div>
+              <div className="com__content__left__card__content">
+                <div className="com__content__left__card__row">
+                  <img className="com__content__left__card__img" src={folderSmall} alt="" />
+                  <a href="https://www.workana.com/freelancer/8082333beeccd2a6c7111466707db1ef" onClick={event => { event.preventDefault(); openUrl(event.currentTarget.href, 'Workana'); }} className="com__content__left__card__text link">
+                    Workana — {isPortuguese ? 'projetos e avaliações' : 'projects and ratings'}
+                  </a>
+                </div>
+                <div className="com__content__left__card__row">
+                  <img className="com__content__left__card__img" src={folderSmall} alt="" />
+                  <a href="https://imobilancamentos.com.br/" onClick={event => { event.preventDefault(); openUrl(event.currentTarget.href, 'Imobi Lançamentos'); }} className="com__content__left__card__text link">
+                    Imobi Lançamentos
+                  </a>
+                </div>
+                <div className="com__content__left__card__row">
+                  <img className="com__content__left__card__img" src={folderSmall} alt="" />
+                  <a href="https://futuradesk.space" onClick={event => { event.preventDefault(); openUrl(event.currentTarget.href, 'Futura Desk'); }} className="com__content__left__card__text link">
+                    Futura Desk
+                  </a>
+                </div>
+                <div className="com__content__left__card__row">
+                  <img className="com__content__left__card__img" src={folderSmall} alt="" />
+                  <a href="https://github.com/nmultimidia/futurahost3" onClick={event => { event.preventDefault(); openUrl(event.currentTarget.href, 'Futura Cloud'); }} className="com__content__left__card__text link">
+                    Futura Cloud
+                  </a>
+                </div>
+                <div className="com__content__left__card__row">
+                  <img className="com__content__left__card__img" src={folderSmall} alt="" />
+                  <div className="com__content__left__card__text">
+                    Futura Mail — {isPortuguese ? 'em desenvolvimento' : 'in development'}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="com__content__left__card">
+              <div className="com__content__left__card__header">
+                <div className="com__content__left__card__header__text">
                   {isPortuguese ? 'Outros locais' : 'Other Places'}
                 </div>
                 <img
