@@ -174,7 +174,7 @@ const reducer = (state, action = { type: '' }) => {
       return state;
   }
 };
-function WinXP() {
+function WinXP({ onLogOff }) {
   const [state, dispatch] = useReducer(reducer, initState);
   const ref = useRef(null);
   const mouse = useMouse(ref);
@@ -289,6 +289,10 @@ function WinXP() {
     [dispatch],
   );
   function onClickModalButton(text) {
+    if (state.powerState === POWER_STATE.LOG_OFF) {
+      onLogOff();
+      return;
+    }
     dispatch({ type: CANCEL_POWER_OFF });
     dispatch({
       type: ADD_APP,

@@ -11,7 +11,7 @@ const App = () => {
 
   return (
     <LanguageContext.Provider value={language}>
-      <WinXP />
+      <WinXP onLogOff={() => setLanguage(null)} />
     </LanguageContext.Provider>
   );
 };
