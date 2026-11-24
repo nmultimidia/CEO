@@ -18,7 +18,7 @@ const projects = [
     description:
       'Developing a cloud control plane and Linux node agent, including node enrollment, heartbeat, command scheduling and infrastructure inventory. The project separates implemented foundations from planned platform capabilities.',
     stack: 'Go · TypeScript · Docker · Linux · PostgreSQL',
-    url: 'https://github.com/nmultimidia/futurahost3',
+    url: 'https://cloud.futuradesk.space',
   },
   {
     name: 'Futura Desk',
@@ -33,7 +33,8 @@ const projects = [
     type: 'Webmail · Systems Integration',
     description:
       'Developing a webmail application as a separate product from the organisation’s own mail-server infrastructure, with mail-protocol and service integration work still in progress.',
-    stack: 'Next.js · React · TypeScript · IMAP/SMTP integration (in development)',
+    stack: 'Next.js · React · TypeScript · IMAP/SMTP integration',
+    url: 'https://mail.futuradesk.space',
   },
   {
     name: 'Discord Ticket Automation',
@@ -80,9 +81,9 @@ const skills = [
 
 const portugueseProjects = [
   { name: 'Imobi Lançamentos', type: 'Tecnologia Imobiliária · Full-Stack e IA', description: 'Contribuí para uma plataforma de lançamentos imobiliários com descoberta de imóveis, fluxos para imobiliárias, gestão de leads e análises de leads com apoio de IA. Também trabalhei no aplicativo Android e na sua publicação na Google Play.', stack: 'Plataforma web · APIs · Integrações de IA · Android', url: 'https://imobilancamentos.com.br/' },
-  { name: 'Futura Cloud', type: 'Infraestrutura em Nuvem · Engenharia', description: 'Desenvolvendo um plano de controlo em nuvem e agente Linux para nós, incluindo registo de nós, heartbeat, agendamento de comandos e inventário de infraestrutura. O projeto separa fundações implementadas das capacidades planeadas.', stack: 'Go · TypeScript · Docker · Linux · PostgreSQL', url: 'https://github.com/nmultimidia/futurahost3' },
+  { name: 'Futura Cloud', type: 'Infraestrutura em Nuvem · Engenharia', description: 'Desenvolvendo um plano de controlo em nuvem e agente Linux para nós, incluindo registo de nós, heartbeat, agendamento de comandos e inventário de infraestrutura. O projeto separa fundações implementadas das capacidades planeadas.', stack: 'Go · TypeScript · Docker · Linux · PostgreSQL', url: 'https://cloud.futuradesk.space' },
   { name: 'Futura Desk', type: 'SaaS Empresarial · Engenharia de Produto', description: 'Desenvolvendo um espaço de trabalho empresarial com CRM, pipeline, projetos, tarefas, finanças e portal de clientes. Alguns módulos ainda estão em desenvolvimento.', stack: 'TypeScript · React · Node.js · SQLite', url: 'https://futuradesk.space' },
-  { name: 'Futura Mail', type: 'Webmail · Integração de Sistemas', description: 'Desenvolvendo uma aplicação de webmail como produto separado da infraestrutura de servidor de e-mail da organização, com integrações de protocolos e serviços ainda em progresso.', stack: 'Next.js · React · TypeScript · Integração IMAP/SMTP (em desenvolvimento)' },
+  { name: 'Futura Mail', type: 'Webmail · Integração de Sistemas', description: 'Desenvolvendo uma aplicação de webmail como produto separado da infraestrutura de servidor de e-mail da organização, com integrações de protocolos e serviços ainda em progresso.', stack: 'Next.js · React · TypeScript · Integração IMAP/SMTP', url: 'https://mail.futuradesk.space' },
   { name: 'Automação de Tickets Discord', type: 'Python · Automação de Backend', description: 'Bot de suporte no Discord para fluxos de tickets e armazenamento de documentação técnica, desenvolvido num projeto real de cliente.', stack: 'Python · APIs · Bases de dados · Linux', url: 'https://github.com/nmultimidia/bot-tickets-infinity' },
 ];
 

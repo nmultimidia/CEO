@@ -18,7 +18,11 @@ export function WindowDropDowns({
     onClickItem(name);
   }
   function onMouseUp(e) {
-    if (!dropDown.current.contains(e.target)) setOpenOption('');
+    // A window can be unmounted by its close button before this global
+    // mouseup handler runs. In that case the ref is intentionally null.
+    if (dropDown.current && !dropDown.current.contains(e.target)) {
+      setOpenOption('');
+    }
   }
   useEffect(() => {
     window.addEventListener('mouseup', onMouseUp);
