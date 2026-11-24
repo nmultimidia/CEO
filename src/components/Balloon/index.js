@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
 
 import risk from 'assets/windowsIcons/229(16x16).png';
+import { useLanguage } from 'i18n/LanguageContext';
 
 function Balloon({ startAfter = 3000, duration = 15000 }) {
   const [show, setShow] = useState(true);
   const [start, setStart] = useState(false);
+  const isPortuguese = useLanguage() === 'pt';
   useEffect(() => {
     const openTimer = setTimeout(() => setStart(true), startAfter);
     const fadeTimer = setTimeout(() => setShow(false), startAfter + duration);
@@ -27,14 +29,14 @@ function Balloon({ startAfter = 3000, duration = 15000 }) {
           <div className="balloon__header">
             <img className="balloon__header__img" src={risk} alt="risk" />
             <span className="balloon__header__text">
-              Your computer might be at risk
+              {isPortuguese ? 'A sua empresa pode estar em risco' : 'Your business may be at risk'}
             </span>
           </div>
           <p className="balloon__text__first">
-            Antivirus software might not be installed
+            {isPortuguese ? 'Processos lentos e sistemas desconectados podem travar o crescimento.' : 'Slow processes and disconnected systems can hold back growth.'}
           </p>
           <p className="balloon__text__second">
-            Click this balloon to fix this problem.
+            {isPortuguese ? 'Gabriel cria soluções web, automação e IA para resolver isso.' : 'Gabriel builds web, automation and AI solutions to solve this.'}
           </p>
         </div>
       </Div>
