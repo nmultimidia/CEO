@@ -223,30 +223,30 @@ function MyComputer({ onClose }) {
                   <img
                     className="com__content__left__card__img"
                     src="https://cdn.worldvectorlogo.com/logos/linkedin-icon-2.svg"
-                    alt="control"
+                    alt="LinkedIn"
                   />
                   <a
-                    href="https://www.linkedin.com/in/rehyann-saini/"
+                    href="https://www.linkedin.com/in/gabriel-nathan-tati/"
                     target="_blank"
                     rel="noreferrer"
                     className="com__content__left__card__text link"
                   >
-                    Linkedin
+                    LinkedIn
                   </a>
                 </div>
                 <div className="com__content__left__card__row">
                   <img
                     className="com__content__left__card__img"
-                    src="https://cdn.worldvectorlogo.com/logos/behance-1.svg"
-                    alt="control"
+                    src="https://cdn.worldvectorlogo.com/logos/github-icon.svg"
+                    alt="GitHub"
                   />
                   <a
-                    href="https://www.behance.net/rehyannsaini"
+                    href="https://github.com/gabrielnathantati2"
                     target="_blank"
                     rel="noreferrer"
                     className="com__content__left__card__text link"
                   >
-                    Behance
+                    GitHub
                   </a>
                 </div>
               </div>
@@ -328,7 +328,7 @@ function MyComputer({ onClose }) {
               </div>
               <div className="com__content__right__card__content">
                 <a
-                  href="https://github.com/Alchemy013"
+                  href="https://github.com/gabrielnathantati2"
                   target="_blank"
                   rel="noreferrer"
                   className="com__content__right__card__item--me"
@@ -336,12 +336,12 @@ function MyComputer({ onClose }) {
                   <img
                     className="com__content__right__card__img"
                     src={logo}
-                    alt="control"
+                    alt="GitHub"
                   />
-                  <div className="com__content__right__card__text">Github</div>
+                  <div className="com__content__right__card__text">GitHub</div>
                 </a>
                 <a
-                  href="https://rehyannsaini.vercel.app/"
+                  href="https://gabrieltatai.online"
                   target="_blank"
                   rel="noreferrer"
                   className="com__content__right__card__item--me"
@@ -349,10 +349,10 @@ function MyComputer({ onClose }) {
                   <img
                     className="com__content__right__card__img"
                     src={rick}
-                    alt="Rick"
+                    alt="Website"
                   />
                   <div className="com__content__right__card__text">
-                    My Website
+                    Meu site
                   </div>
                 </a>
               </div>
