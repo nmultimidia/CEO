@@ -50,7 +50,13 @@ const experience = [
     role: 'Founder · N Multimídia | Building Grupo Futura',
     period: 'Entrepreneurship & Product Development',
     description:
-      'Lead client projects and digital product development, combining software, automation and business problem-solving. Work includes websites, e-commerce, API integrations, business platforms and AI-assisted workflows.',
+      'Lead client projects and digital product development, combining software, automation, customer communication and business problem-solving. Work includes websites, e-commerce, API integrations, business platforms and AI-assisted workflows.',
+  },
+  {
+    role: 'Client Experience & Technical Support · L1, L2 & L3',
+    period: 'Client delivery · N Multimídia',
+    description:
+      'Support clients across the full service journey: L1 for first contact, request intake and guidance; L2 for diagnosis, configuration and integration issues; and L3 for technical investigation, fixes and escalation follow-through. Translate business needs into clear next steps and keep stakeholders informed.',
   },
   {
     role: 'Technical Intern · Angola Telecom',
@@ -66,6 +72,7 @@ const skills = [
   ['Backend & APIs', 'Node.js · Express · REST APIs · API integrations'],
   ['Data', 'PostgreSQL · MySQL · SQLite · Supabase'],
   ['AI & Automation', 'LLM integrations · AI agents · n8n · Workflow automation'],
+  ['Customer Experience & Support', 'Customer support L1/L2/L3 · Ticket triage · Technical troubleshooting · Stakeholder communication · Client onboarding'],
   ['Infrastructure', 'Linux · Docker · Git · Server deployment'],
   ['Telecommunications', 'TCP/IP · Asterisk/SIP · 4G/5G fundamentals'],
   ['Electronics', 'Altium Designer · Electronic schematics'],
@@ -80,7 +87,8 @@ const portugueseProjects = [
 ];
 
 const portugueseExperience = [
-  { role: 'Fundador · N Multimídia | A desenvolver o Grupo Futura', period: 'Empreendedorismo e Desenvolvimento de Produtos', description: 'Lidero projetos de clientes e desenvolvimento de produtos digitais, combinando software, automação e resolução de problemas de negócio. O trabalho inclui sites, e-commerce, integrações de API, plataformas empresariais e fluxos com IA.' },
+  { role: 'Fundador · N Multimídia | A desenvolver o Grupo Futura', period: 'Empreendedorismo e Desenvolvimento de Produtos', description: 'Lidero projetos de clientes e desenvolvimento de produtos digitais, combinando software, automação, comunicação com clientes e resolução de problemas de negócio. O trabalho inclui sites, e-commerce, integrações de API, plataformas empresariais e fluxos com IA.' },
+  { role: 'Experiência do Cliente e Suporte Técnico · L1, L2 e L3', period: 'Entrega a clientes · N Multimídia', description: 'Apoio clientes durante toda a jornada de serviço: L1 para primeiro contacto, receção de pedidos e orientação; L2 para diagnóstico, configuração e problemas de integração; e L3 para investigação técnica, correções e acompanhamento de escalonamentos. Traduzo necessidades de negócio em próximos passos claros e mantenho as partes interessadas informadas.' },
   { role: 'Estagiário Técnico · Angola Telecom', period: 'Telecomunicações', description: 'Obtive experiência prática com infraestrutura de telecomunicações, incluindo UA5000, Tera ADSL/POTS, ligações de transmissão SDH/DWDM, tecnologias Huawei TCP/IP e sistemas UPS.' },
 ];
 
@@ -90,6 +98,7 @@ const portugueseSkills = [
   ['Backend e APIs', 'Node.js · Express · APIs REST · Integrações de API'],
   ['Dados', 'PostgreSQL · MySQL · SQLite · Supabase'],
   ['IA e Automação', 'Integrações LLM · Agentes de IA · n8n · Automação de fluxos'],
+  ['Experiência do Cliente e Suporte', 'Suporte ao cliente L1/L2/L3 · Triagem de tickets · Diagnóstico técnico · Comunicação com partes interessadas · Onboarding de clientes'],
   ['Infraestrutura', 'Linux · Docker · Git · Implementação de servidores'],
   ['Telecomunicações', 'TCP/IP · Asterisk/SIP · Fundamentos 4G/5G'],
   ['Eletrónica', 'Altium Designer · Esquemas eletrónicos'],
@@ -121,7 +130,7 @@ export default function CV({ onClose }) {
             <Name>Gabriel Nathan Tati</Name>
             <Location>{isPortuguese ? 'Luanda, Angola · Disponível para oportunidades remotas e internacionais' : 'Luanda, Angola · Open to remote and international opportunities'}</Location>
             <Intro>
-              {isPortuguese ? 'Desenvolvo produtos digitais práticos que ajudam empresas a operar, conectar-se e crescer — desde aplicações web e plataformas de e-commerce a integrações de backend, automação e soluções com IA. A minha experiência combina execução para clientes, desenvolvimento de produto e uma base técnica em eletrónica e telecomunicações.' : 'I build practical digital products that help businesses operate, connect and grow — from web applications and e-commerce platforms to backend integrations, automation and AI-powered solutions. My experience combines hands-on client delivery, product development and a technical foundation in electronics and telecommunications.'}
+            {isPortuguese ? 'Desenvolvo produtos digitais práticos e experiências de suporte que ajudam empresas a operar, conectar-se e crescer — desde aplicações web e plataformas de e-commerce a integrações de backend, automação, resolução de incidentes e soluções com IA. A minha experiência combina entrega para clientes, suporte técnico L1/L2/L3, desenvolvimento de produto e uma base técnica em eletrónica e telecomunicações.' : 'I build practical digital products and support experiences that help businesses operate, connect and grow — from web applications and e-commerce platforms to backend integrations, automation, incident resolution and AI-powered solutions. My experience combines client delivery, L1/L2/L3 technical support, product development and a technical foundation in electronics and telecommunications.'}
             </Intro>
             <Links>
               <a href="mailto:bielnathanoficial@gmail.com">Email</a>
@@ -138,6 +147,16 @@ export default function CV({ onClose }) {
           <Stat><strong>4</strong><span>{isPortuguese ? 'clientes recorrentes' : 'Repeat clients'}</span></Stat>
           <Stat><strong>{isPortuguese ? 'Global' : 'Global'}</strong><span>{isPortuguese ? 'experiência em projetos de clientes' : 'Client project experience'}</span></Stat>
         </Stats>
+
+        <Section>
+          <SectionTitle>{isPortuguese ? 'Destaques para Recrutadores' : 'Recruiter Highlights'}</SectionTitle>
+          <HighlightGrid>
+            <Highlight><strong>{isPortuguese ? 'Experiência do cliente' : 'Customer experience'}</strong><span>{isPortuguese ? 'Atendimento, onboarding e comunicação clara com clientes.' : 'Customer support, onboarding and clear client communication.'}</span></Highlight>
+            <Highlight><strong>{isPortuguese ? 'Suporte L1 · L2 · L3' : 'L1 · L2 · L3 support'}</strong><span>{isPortuguese ? 'Triagem, diagnóstico, resolução técnica e acompanhamento de escalonamentos.' : 'Triage, diagnosis, technical resolution and escalation follow-through.'}</span></Highlight>
+            <Highlight><strong>{isPortuguese ? 'Entrega orientada ao negócio' : 'Business-focused delivery'}</strong><span>{isPortuguese ? 'Transforma necessidades de negócio em soluções digitais práticas.' : 'Turns business needs into practical digital solutions.'}</span></Highlight>
+            <Highlight><strong>{isPortuguese ? 'Colaboração remota' : 'Remote collaboration'}</strong><span>{isPortuguese ? 'Comunicação com clientes e equipas em projetos internacionais.' : 'Client and team communication across international projects.'}</span></Highlight>
+          </HighlightGrid>
+        </Section>
 
         <Section>
           <SectionTitle>{isPortuguese ? 'Experiência Profissional' : 'Professional Experience'}</SectionTitle>
@@ -375,6 +394,25 @@ const SectionTitle = styled.h2`
   color: #17365d;
   border-bottom: 2px solid #6e9ed6;
   font-size: 14px;
+`;
+
+const HighlightGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  @media (max-width: 600px) { grid-template-columns: 1fr; }
+`;
+
+const Highlight = styled.article`
+  padding: 10px 11px;
+  border: 1px solid #cfdbeb;
+  border-left: 4px solid #4d88c8;
+  background: #f6f9fd;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  strong { color: #173f6b; font-size: 11px; }
+  span { color: #4d5c6d; font-size: 10px; line-height: 1.5; }
 `;
 
 const Experience = styled.article`
